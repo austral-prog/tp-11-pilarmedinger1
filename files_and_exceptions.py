@@ -3,13 +3,13 @@ def read_file_to_dict(filename):
     
     try:
         with open(filename, 'r') as file: #abre el archivo en modo lectura, y le pone el nombre file
-            linea = file.readline () #lee linea del archivo, hay una sola linea asique alcanza
+            linea = file.read() #lee linea del archivo, hay una sola linea asique alcanza
             lista_entrada = linea.split(";") #corta la linea cada vez que hay un ";"
             #entradas es una lista ahora con items asi ['producto1': 100]
 
             for entrada in lista_entrada: #recorre cada entra de tipo product0:valor
                 if entrada == '': #si la entrada esta vacia la saltea
-                    pass
+                    continue
                 #separamos el prodcuto del valor
                 producto, valor = entrada.split(":") #separa en dos variables
                 #producto1:100, se convierte en producto=producto1 y valor=100 (ambos son texto)
